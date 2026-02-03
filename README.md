@@ -1,13 +1,19 @@
-![Dashboard](image/Dashboard_Page Sales perfromance.png)
 
 # Dashboard-sales-performance
-Mini Project Sales Performance
+Mini Project Dashboard Sales Performance
 
-## Deskripsi Dashboard
-Project ini adalah mini project dari task bootcamp BI Analyst yaitu menyusun dashboard untuk monitoring kinerja penjualan & pengiriman tahun berjalan (YTD).
+# Deskripsi Dashboard
+Project ini adalah mini project dari bootcamp BI Analyst yaitu membuat dashboard untuk monitoring kinerja penjualan & pengiriman tahun berjalan (YTD) pada perusahaan ritel.
 
-## Sumber dataset 
-SQL server (postgresql) digital skola :
+# Dashboard Overview
+## Page Sales
+![Dashboard](Dashboard/Dashboard_Page_Sales_perfromance.png)
+
+## Page Shipment
+![Dashboard](Dashboard/Dashboard_page_shipment.png)
+
+# Sumber dataset 
+Convert data csv atau query sql dari database/SQL server (postgresql) milik digital skola :
 - data order
 - data order_details
 - data products
@@ -15,6 +21,8 @@ SQL server (postgresql) digital skola :
 - data shipment
 - data shipper
 
-## Tools 
+# Tools 
 - sql
 - power BI
+
+
