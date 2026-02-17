@@ -3,10 +3,16 @@
 Mini Project Dashboard Sales Performance
 
 # Deskripsi Dashboard
-Project ini adalah mini project dari bootcamp BI Analyst yaitu membuat dashboard untuk monitoring kinerja penjualan & pengiriman tahun berjalan (YTD) pada perusahaan ritel.
+Project ini adalah mini project dashboard untuk monitoring kinerja penjualan & pengiriman tahun berjalan (YTD) pada perusahaan ritel.
+
+# Tools 
+- sql (postgresql)
+- power BI
+- dbeaver (IDE)
+- figma (mockup dashboard)
 
 # Sumber dataset 
-Convert data csv atau query sql dari database/SQL server (postgresql) milik digital skola :
+Database (postgresql) :
 - data order
 - data order_details
 - data products
@@ -14,9 +20,8 @@ Convert data csv atau query sql dari database/SQL server (postgresql) milik digi
 - data shipment
 - data shipper
 
-# Tools 
-- sql
-- power BI
+# Data Dictionary
+
 
 # SQL Script
     WITH line AS (
