@@ -24,7 +24,8 @@ Database (postgresql) :
 
 
 # SQL Script
-    WITH line AS (
+```sql   
+WITH line AS (
       SELECT
         o.order_id,
         o.order_date,
@@ -61,23 +62,23 @@ Database (postgresql) :
       l.employee_id,
       l.ship_via        AS shipper_id,
     
-      -- Dates + handy parts
-      TO_CHAR(l.order_date, 'YYYY-MM-DD') AS order_date,
-      TO_CHAR(date_trunc('month', l.order_date), 'YYYY-MM-DD') AS month_order,
-      EXTRACT(YEAR  FROM l.order_date)::int  AS order_year,
-      EXTRACT(QUARTER FROM l.order_date)::int AS order_quarter,
-      EXTRACT(MONTH FROM l.order_date)::int   AS order_month,
-      TO_CHAR(l.order_date, 'Mon')            AS order_month_abbr,
-      TO_CHAR(l.required_date, 'YYYY-MM-DD') AS required_date,
-      TO_CHAR(l.shipped_date, 'YYYY-MM-DD') AS shipped_date,
+    -- Dates + handy parts
+    TO_CHAR(l.order_date, 'YYYY-MM-DD') AS order_date,
+    TO_CHAR(date_trunc('month', l.order_date), 'YYYY-MM-DD') AS month_order,
+    EXTRACT(YEAR  FROM l.order_date)::int  AS order_year,
+    EXTRACT(QUARTER FROM l.order_date)::int AS order_quarter,
+    EXTRACT(MONTH FROM l.order_date)::int   AS order_month,
+    TO_CHAR(l.order_date, 'Mon')            AS order_month_abbr,
+    TO_CHAR(l.required_date, 'YYYY-MM-DD') AS required_date,
+    TO_CHAR(l.shipped_date, 'YYYY-MM-DD') AS shipped_date,
     
     
-      -- Status kirim
-      CASE
-        WHEN l.shipped_date IS NULL THEN 'Pending'
-        WHEN l.shipped_date > l.required_date THEN 'Late'
-        ELSE 'On time'
-      END AS ship_status,
+    -- Status kirim
+    CASE
+    WHEN l.shipped_date IS NULL THEN 'Pending'
+    WHEN l.shipped_date > l.required_date THEN 'Late'
+    ELSE 'On time'
+    END AS ship_status,
     
       -- Shipping info
       l.ship_name,
@@ -142,6 +143,7 @@ Database (postgresql) :
     LEFT JOIN customers  c   ON c.customer_id  = l.customer_id
     LEFT JOIN employees  e   ON e.employee_id  = l.employee_id
     LEFT JOIN shippers   s   ON s.shipper_id   = l.ship_via;
+```
 
 # Dashboard Overview
 ## Page Sales
