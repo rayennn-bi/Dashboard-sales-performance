@@ -1,6 +1,8 @@
-![Dashboard](Dashboard/Dashboard_Page_Sales_perfromance.png)
 # Dashboard Sales & Shipment performance
 Mini Project Dashboard Sales Performance
+
+
+![Dashboard](Dashboard/Dashboard_Page_Sales_perfromance.png)
 
 # Deskripsi Dashboard
 Project ini adalah mini project dashboard untuk monitoring kinerja penjualan & pengiriman tahun berjalan (YTD) pada perusahaan ritel.
@@ -131,7 +133,7 @@ WITH line AS (
             ELSE 0
        END)::numeric(14,2) AS freight_alloc,
     
-      -- Total billed (jika ingin memasukkan freight)
+      -- Total billed (Sales plus freight)
       (l.line_amount
        + CASE WHEN ot.order_amount > 0
               THEN (l.freight * (l.line_amount / ot.order_amount))
@@ -157,10 +159,10 @@ LEFT JOIN shippers   s   ON s.shipper_id   = l.ship_via;
 
 ### 1️. Revenue & Order Growth Solid
 
-- Total Sales: $753.05K (+52.18% YoY)
+- Total Sales: € 753.05K (+52.18% YoY)
 - Total Orders: 473 (+37.90% YoY)
-- Total Quantity: $28.60K (+31.05% YoY)
-- AOV: $1.59K (+10.36% YoY)
+- Total Quantity: € 28.60K (+31.05% YoY)
+- AOV: € 1.59K (+10.36% YoY)
 
 📌 Insight :
 Pertumbuhan revenue lebih cepat dibanding pertumbuhan order → strategi pricing, bundling, atau upselling berjalan efektif. Kenaikan AOV menunjukkan kualitas order meningkat, bukan hanya volume.
@@ -168,7 +170,7 @@ Pertumbuhan revenue lebih cepat dibanding pertumbuhan order → strategi pricing
 
 ### 2️. Seasonal Trend & Volatility
 
-Penjualan turun signifikan di April, lalu meningkat konsisten hingga puncak di September ($130K).
+Penjualan turun signifikan di April, lalu meningkat konsisten hingga puncak di September (€ 130K).
 Oktober mengalami sharp drop, meskipun masih di atas beberapa bulan awal.
 
 📌 Insight:
@@ -194,7 +196,7 @@ USA & Germany menyumbang mayoritas revenue.
 
 📌 Insight:
 Bisnis masih terkonsentrasi pada mid-price segment & beberapa negara utama.
-Risiko: shock pasar / regulasi → revenue langsung terdampak.
+Dapat berisiko terjadi shock pasar / regulasi dan berdampak langsung ke revenue.
 
 ## SHIPMENT PERFORMANCE INSIGHT
 ### 5️. Service Level Sangat Baik, Tapi Ada Early Warning
