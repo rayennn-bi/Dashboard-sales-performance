@@ -79,8 +79,8 @@ WITH line AS (
     WHEN l.shipped_date > l.required_date THEN 'Late'
     ELSE 'On time'
     END AS ship_status,
-    
-      -- Shipping info
+
+    -- Shipping info
       l.ship_name,
       l.ship_address,
       l.ship_city,
@@ -136,13 +136,13 @@ WITH line AS (
        + CASE WHEN ot.order_amount > 0
               THEN (l.freight * (l.line_amount / ot.order_amount))
               ELSE 0 END)::numeric(14,2) AS sales_plus_freight
-    FROM line l
-    JOIN order_totals ot ON ot.order_id = l.order_id
-    LEFT JOIN products   p   ON p.product_id   = l.product_id
-    LEFT JOIN categories cat ON cat.category_id = p.category_id
-    LEFT JOIN customers  c   ON c.customer_id  = l.customer_id
-    LEFT JOIN employees  e   ON e.employee_id  = l.employee_id
-    LEFT JOIN shippers   s   ON s.shipper_id   = l.ship_via;
+FROM line l
+JOIN order_totals ot ON ot.order_id = l.order_id
+LEFT JOIN products   p   ON p.product_id   = l.product_id
+LEFT JOIN categories cat ON cat.category_id = p.category_id
+LEFT JOIN customers  c   ON c.customer_id  = l.customer_id
+LEFT JOIN employees  e   ON e.employee_id  = l.employee_id
+LEFT JOIN shippers   s   ON s.shipper_id   = l.ship_via;
 ```
 
 # Dashboard Overview
